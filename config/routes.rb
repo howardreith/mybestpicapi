@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :picture_infos
+  resources :picture_win_losses
+  resources :picture_measurements
+  resources :pictures
   # RESTful routes
   resources :examples, except: %i[new edit]
   resources :users, only: %i[index show update]

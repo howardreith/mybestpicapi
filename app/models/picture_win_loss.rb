@@ -1,0 +1,2 @@
+class PictureWinLoss < ApplicationRecord
+end
