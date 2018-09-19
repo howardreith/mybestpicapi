@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 20180919224942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,23 @@ ActiveRecord::Schema.define(version: 2) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_examples_on_user_id"
+  end
+
+  create_table "user_infos", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "email"
+    t.string "password"
+    t.string "gender"
+    t.string "attracted_to"
+    t.float "user_rating"
+    t.integer "age"
+    t.integer "age_preference_min"
+    t.integer "age_preference_max"
+    t.date "data_warehouse_open_date"
+    t.date "data_warehouse_close_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_infos_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,4 +51,5 @@ ActiveRecord::Schema.define(version: 2) do
   end
 
   add_foreign_key "examples", "users"
+  add_foreign_key "user_infos", "users"
 end
