@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :picture_infos
   resources :pictures
   resources :user_infos
   # RESTful routes
