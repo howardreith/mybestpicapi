@@ -1,0 +1,2 @@
+class PictureMeasurement < ApplicationRecord
+end
