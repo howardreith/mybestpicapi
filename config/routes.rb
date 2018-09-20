@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :picture_flags
   resources :picture_win_losses
   resources :picture_measurements
   resources :picture_infos

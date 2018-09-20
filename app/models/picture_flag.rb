@@ -1,0 +1,2 @@
+class PictureFlag < ApplicationRecord
+end
