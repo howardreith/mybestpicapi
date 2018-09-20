@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180919230810) do
+ActiveRecord::Schema.define(version: 20180920232533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(version: 20180919230810) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["picture_id"], name: "index_picture_measurements_on_picture_id"
+  end
+
+  create_table "picture_win_losses", force: :cascade do |t|
+    t.bigint "picture_id", null: false
+    t.string "evaluating_user_id"
+    t.string "winning_picture_id"
+    t.string "losing_picture_id"
+    t.float "weight"
+    t.date "data_warehouse_open_date"
+    t.date "data_warehouse_close_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["picture_id"], name: "index_picture_win_losses_on_picture_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -82,6 +95,7 @@ ActiveRecord::Schema.define(version: 20180919230810) do
   add_foreign_key "examples", "users"
   add_foreign_key "picture_infos", "pictures"
   add_foreign_key "picture_measurements", "pictures"
+  add_foreign_key "picture_win_losses", "pictures"
   add_foreign_key "pictures", "users"
   add_foreign_key "user_infos", "users"
 end
