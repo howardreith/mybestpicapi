@@ -46,6 +46,8 @@ class SessionTrackersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def session_tracker_params
-      params.fetch(:session_tracker, {})
+      params.require(:session_tracker).permit(:id, :pictures_loaded, :pictures_reviewed, :pictures_needing_review,
+      :sent_for_analysis, :isActive, :last_activity, :created_at, :updated_at,
+      :user_id)
     end
 end
