@@ -46,6 +46,7 @@ class PictureFlagsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def picture_flag_params
-      params.fetch(:picture_flag, {})
+      params.require(:picture_flag).permit(:id, :picture_id, :report_id, :flag_category, :review_status,
+      :data_warehouse_open_date, :data_warehouse_close_date)
     end
 end
