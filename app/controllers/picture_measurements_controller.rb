@@ -46,6 +46,6 @@ class PictureMeasurementsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def picture_measurement_params
-      params.fetch(:picture_measurement, {})
+      params.require(:picture_measurement).permit(:id, :picture_id, :picture_rating, :created_at, :updated_at)
     end
 end
